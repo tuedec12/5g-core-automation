@@ -1,0 +1,24 @@
+name: 5G Core Automated Testing Pipeline
+
+# 1. THE TRIGGER: When does this run?
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+# 2. THE JOB: What are we doing?
+jobs:
+  test-network:
+    runs-on: ubuntu-latest
+
+    # 3. THE STEPS: The exact commands the automated server will run
+    steps:
+    - name: Step 1 - Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Step 2 - Grant Execution Permissions
+      run: chmod +x scripts/test.sh
+
+    - name: Step 3 - Execute Multi-User Load Test
+      run: bash scripts/test.sh
