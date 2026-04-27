@@ -10,7 +10,7 @@ on:
 # 2. THE JOB: What are we doing?
 jobs:
   test-network:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     # 3. THE STEPS: The exact commands the automated server will run
     steps:
